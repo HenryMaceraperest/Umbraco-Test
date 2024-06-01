@@ -1,0 +1,16 @@
+@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (RichTextRow)Model.Content;
+    if (row == null) return;
+    var settings = (RichTextRowSettings)Model.Settings;
+    if (settings?.Hide ?? false) { return; }
+}
+
+<div class="col-lg-8 col-xxl-6">
+    <div class="text-center my-5">
+        <h1 class="fw-bolder mb-3">Our mission is to make building websites easier for everyone.</h1>
+        <p class="lead fw-normal text-muted mb-4">@row.Content</p>
+        <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a>
+    </div>
+</div>
