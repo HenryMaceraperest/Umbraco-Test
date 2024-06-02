@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.FAqpage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<header class="py-5">
+    <div class="container px-5">
+        <div class="row justify-content-center">
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        @Html.GetBlockListHtml(Model.MainContent)
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>

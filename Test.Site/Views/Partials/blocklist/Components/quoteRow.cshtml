@@ -1,0 +1,25 @@
+@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (QuoteRow)Model.Content;
+    if (row == null || string.IsNullOrEmpty(row.Author) || string.IsNullOrEmpty(row.Description)) return;
+    var settings = (QuoteRowSettings)Model.Settings;
+    if (settings?.Hide ?? false) { return; }
+}
+
+<div class="py-5 bg-light">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-10 col-xl-7">
+                <div class="text-center">
+                    <div class="fs-4 mb-4 fst-italic">"@row.Description"</div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="fw-bold">
+                            @row.Author
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

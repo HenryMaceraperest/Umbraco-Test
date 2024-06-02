@@ -29,7 +29,7 @@
                     <div class="card h-100 shadow border-0">
                         @if (rowItem.Image != null)
                         {
-                            <img class="card-img-top" src="@rowItem.Image.Url()" alt="@rowItem.Image.Name" />
+                            <img class="card-img-top" src="@rowItem.Image.GetCropUrl(530, 300)" alt="@rowItem.Image.Name" />
                         }
                         <div class="card-body p-4">
                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">@rowItem.Pill</div>

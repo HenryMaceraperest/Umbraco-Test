@@ -1,0 +1,32 @@
+@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (AccordionRow)Model.Content;
+    if (row.AccordionItems == null || !row.AccordionItems.Any()) return;
+    var settings = (AccordionRowSettings)Model.Settings;
+    if(settings?.Hide ?? false) { return; }
+}
+
+
+<div class="col-xl-12">
+    <h2 class="fw-bolder mb-3">@row.Title</h2>
+    <div class="accordion mb-5" id="@row.Key">
+    @{var index = 1;}
+    @foreach (var item in row.AccordionItems)
+    {
+        var accordionItem = (AccordionItem)item.Content;
+        var accordionItemSettings = (AccordionItemSettings)item.Settings;
+        if (accordionItemSettings.Hide && string.IsNullOrEmpty(accordionItem.Title)) continue;
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="@accordionItem.Key"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@index-@accordionItem.Key" aria-expanded="false" aria-controls="collapse-@index-@accordionItem.Key">@accordionItem.Title</button></h3>
+                <div class="accordion-collapse collapse" id="collapse-@index-@accordionItem.Key" aria-labelledby="collapse-@index-@accordionItem.Key" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        @accordionItem.Content
+                    </div>
+                </div>
+            </div>
+            index++;
+        }
+    </div>
+</div>
