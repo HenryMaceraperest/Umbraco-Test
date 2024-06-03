@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.6.0" />
     <PackageReference Include="Our.Umbraco.Community.Contentment" Version="4.7.0" />
     <PackageReference Include="Umbraco.Cms" Version="13.3.2" />
   </ItemGroup>
